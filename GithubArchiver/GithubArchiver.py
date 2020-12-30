@@ -14,14 +14,16 @@ class GithubArchiver:
     GITHUBARCHIVER_PASSWORD: str = "GITHUBARCHIVER_PASSWORD"
     ROOT_WD = os.getcwd()
     logging.basicConfig(format='%(levelname)s | %(asctime)s | %(message)s', level=logging.INFO, datefmt='%m/%d/%Y '
-                                                                                                    '%I:%M:%S %p')
+                                                                                                        '%I:%M:%S %p')
 
     def __init__(self):
         self.github: Github = self.authenticate()
-        command = f"git config --global url.\"https://{os.getenv(GithubArchiver.GITHUBARCHIVER_AT)}:@github.com/\".insteadOf \"https://github.com/\""
+        command = f"git config --global url.\"https://{os.getenv(GithubArchiver.GITHUBARCHIVER_AT)}:@github.com" \
+                  f"/\".insteadOf \"https://github.com/\" "
         os.popen(cmd=command).read()
 
-    def authenticate(self) -> Github:
+    @staticmethod
+    def authenticate() -> Github:
         if os.getenv(GithubArchiver.GITHUBARCHIVER_AT) is not None:
             return GithubArchiver.authenticate_token()
         elif os.getenv(GithubArchiver.GITHUBARCHIVER_USER) is not None and os.getenv(
@@ -49,9 +51,9 @@ class GithubArchiver:
                 repo=repo_name))
             return
         try:
-            GithubArchiver.__clone(repo.clone_url, repo_name=repo.name, parent_name=repo.parent.name)
+            GithubArchiver.__clone(clone_url=repo.clone_url, repo_name=repo.name, parent_name=repo.parent.name)
         except FileExistsError:
-            GithubArchiver.__pull(repo_name=repo.name, parent_name=repo.parent.name)
+            GithubArchiver.__pull(clone_url=repo.clone_url, repo_name=repo.name, parent_name=repo.parent.name)
 
     def download_by_org(self, org_name: str):
         os.chdir(GithubArchiver.ROOT_WD)  # Go to the root working direcotry
@@ -115,7 +117,6 @@ class GithubArchiver:
 
 
 def run_main():
-
     logging.info("Getting Orgs and Users")
     archiver = GithubArchiver()
     if os.getenv("GITHUBARCHIVER_ORGS") is not None and os.getenv("GITHUBARCHIVER_ORGS") != "":
