@@ -3,8 +3,9 @@ from github.GithubException import UnknownObjectException
 
 import logging
 import os
+import shutil
 import git
-from git.exc import InvalidGitRepositoryError
+from git.exc import InvalidGitRepositoryError, GitCommandError
 
 
 class GithubArchiver:
@@ -100,12 +101,16 @@ class GithubArchiver:
             else:
                 logging.error(f"The path {repo_path} was not found")
         except InvalidGitRepositoryError:
-            logging.error(f"The specified folder \"{repo_path}\" is not a git directory")
 
-
+            logging.error(f"The specified folder \"{repo_path}\" is not a git directory. Deleting the potentially "
+                          f"broken file. Will address the issue on the next run")
+            shutil.rmtree(path=repo_path)
+        except GitCommandError:
+            logging.error(f"The specified folder \"{repo_path}\" is a git directory, but its causing the git command "
+                          f"to have issues. Deleting the potentially broken folder. Will address the issue on the "
+                          f"next run")
+            shutil.rmtree(path=repo_path)
 def run_main():
-    import schedule
-    import time
 
     logging.info("Getting Orgs and Users")
     archiver = GithubArchiver()
