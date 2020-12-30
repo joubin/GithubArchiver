@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Joubin Jabbari/AirDroid4Mac" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Joubin Jabbari/Alfred-Workflows" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Joubin Jabbari/AndroidPlayGround" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PyGithub/PyGithub" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/apple/cups" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/apple/swift" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/apple/swift-lldb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/Signal-Android" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/WhisperYAFFS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/joubin/AirDroid4Mac" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/joubin/Alfred-Workflows" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/joubin/AndroidPlayGround" vcs="Git" />
+  </component>
+</project>

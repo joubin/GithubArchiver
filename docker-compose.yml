@@ -1,0 +1,12 @@
+version: '2'
+services:
+    github_archiver:
+        build: .
+        volumes:
+            - ./data:/data
+        environment:
+            - "GITHUBARCHIVER_ORGS=signalapp,ytdl-org,moxie0,FFmpeg,docker,apache,jedisct1,OpenVPN,torvalds,transmission,fireeye,rapid7,Homebrew,mitre,usnistgov,facebook,microsoft,apple"
+            - "GITHUBARCHIVER_RUNDAILY=true"
+            - "GITHUBARCHIVER_AT=xxxxxxxxxxxxxx"
+        restart: always
+
