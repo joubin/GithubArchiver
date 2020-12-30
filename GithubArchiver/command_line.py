@@ -12,6 +12,6 @@ def main():
         schedule.every().day.at("01:00").do(run_main)
         while True:
             schedule.run_pending()
-            time.sleep(3600)
+            time.sleep(30)
     else:
         run_main()

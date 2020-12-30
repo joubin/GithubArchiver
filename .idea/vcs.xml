@@ -9,8 +9,73 @@
     <mapping directory="$PROJECT_DIR$/apple/cups" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/apple/swift" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/apple/swift-lldb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/AES-GCM-Provider" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/AFNetworking" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/Argon2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/BOLT" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/BitHub" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/CLAServer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/ContactDiscoveryService" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/Curve25519Kit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/Flock" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/GRDB.swift" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/GRKOpenSSLFramework" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/HKDFKit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/JSQMessagesViewController" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/Mantle" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/ObjC-CollapsingFutures" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/OpenSSL-Pod" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/PastelogKit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/PushServer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/SQLCipherVsSharedData" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/SecureValueRecovery" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/ShortcutBadger" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/data/signalapp/Signal-Android" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/Signal-Carthage" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/Signal-Design" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/Signal-Desktop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/Signal-Pods" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/Signal-Server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/Signal-iOS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/SignalCoreKit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/SignalMetadataKit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/SignalProtocolKit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/SignalServiceKit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/SocketRocket" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/Starscream" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/WebSocket-Resources" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/data/signalapp/WhisperYAFFS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/YYImage" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/YapDatabase" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/blurhash" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/cocoapods-binary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/curve25519-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/dropwizard-simpleauth" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/dropwizard-wavefront" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/gcm-sender-async" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/gradle-witness" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/jekyll-simple-i18n" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/jobmanager" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/l10n_lint" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/libPhoneNumber-iOS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/libaxolotl-j2me" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/libpastelog" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/libsignal-metadata-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/libsignal-protocol-c" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/libsignal-protocol-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/libsignal-protocol-javascript" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/libsignal-service-java" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/libwebrtc-android" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/maven" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/mio" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/poksho" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/redis-dispatch" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/ringrtc" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/signal-webrtc-ios" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/signal-webrtc-ios-artifacts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/signal-zkgroup-node" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/signal-zkgroup-swift" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/signalapp/zkgroup" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/joubin/AirDroid4Mac" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/joubin/Alfred-Workflows" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/joubin/AndroidPlayGround" vcs="Git" />
