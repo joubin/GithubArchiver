@@ -98,6 +98,7 @@ class GithubArchiver:
         os.chdir(parent_name)
         try:
             if os.path.exists(path=repo_name):
+                logging.info(f"Pulling {repo_name}")
                 git.Repo(path=repo_name).remote().pull()
                 logging.info(f"Finished pulling {repo_name}")
             else:
