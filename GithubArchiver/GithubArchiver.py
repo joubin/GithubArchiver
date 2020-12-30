@@ -51,7 +51,7 @@ class GithubArchiver:
         try:
             GithubArchiver.__clone(repo.clone_url, repo_name=repo.name, parent_name=repo.parent.name)
         except FileExistsError:
-            GithubArchiver.__pull(repo_path=repo.name, parent_name=repo.parent.name)
+            GithubArchiver.__pull(repo_name=repo.name, parent_name=repo.parent.name)
 
     def download_by_org(self, org_name: str):
         os.chdir(GithubArchiver.ROOT_WD)  # Go to the root working direcotry
@@ -72,7 +72,7 @@ class GithubArchiver:
             if not os.path.exists(repo.name):
                 GithubArchiver.__clone(clone_url=repo.clone_url, repo_name=repo.name, parent_name=repo.owner.login)
             else:
-                GithubArchiver.__pull(repo_path=repo.name, parent_name=repo.owner.login)
+                GithubArchiver.__pull(clone_url=repo.clone_url, repo_name=repo.name, parent_name=repo.owner.login)
 
     @staticmethod
     def __clone(clone_url, repo_name, parent_name):
@@ -88,28 +88,32 @@ class GithubArchiver:
             raise FileExistsError
 
     @staticmethod
-    def __pull(repo_path: str, parent_name: str):
+    def __pull(clone_url: str, repo_name: str, parent_name: str):
         os.chdir(GithubArchiver.ROOT_WD)
         if not os.path.exists(parent_name):
             logging.error(f"{parent_name} does not exist.")
             raise FileNotFoundError
         os.chdir(parent_name)
         try:
-            if os.path.exists(path=repo_path):
-                git.Repo(path=repo_path).remote().pull()
-                logging.info(f"Finished pulling {repo_path}")
+            if os.path.exists(path=repo_name):
+                git.Repo(path=repo_name).remote().pull()
+                logging.info(f"Finished pulling {repo_name}")
             else:
-                logging.error(f"The path {repo_path} was not found")
+                logging.error(f"The path {repo_name} was not found")
         except InvalidGitRepositoryError:
 
-            logging.error(f"The specified folder \"{repo_path}\" is not a git directory. Deleting the potentially "
+            logging.error(f"The specified folder \"{repo_name}\" is not a git directory. Deleting the potentially "
                           f"broken file. Will address the issue on the next run")
-            shutil.rmtree(path=repo_path)
+            shutil.rmtree(path=repo_name)
+            GithubArchiver.__clone(clone_url=clone_url, repo_name=repo_name, parent_name=parent_name)
         except GitCommandError:
-            logging.error(f"The specified folder \"{repo_path}\" is a git directory, but its causing the git command "
+            logging.error(f"The specified folder \"{repo_name}\" is a git directory, but its causing the git command "
                           f"to have issues. Deleting the potentially broken folder. Will address the issue on the "
                           f"next run")
-            shutil.rmtree(path=repo_path)
+            shutil.rmtree(path=repo_name)
+            GithubArchiver.__clone(clone_url=clone_url, repo_name=repo_name, parent_name=parent_name)
+
+
 def run_main():
 
     logging.info("Getting Orgs and Users")
