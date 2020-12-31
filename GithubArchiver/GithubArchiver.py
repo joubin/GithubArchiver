@@ -78,18 +78,28 @@ class GithubArchiver:
                 GithubArchiver.__pull(clone_url=repo.clone_url, repo_name=repo.name, parent_name=repo.owner.login)
 
     @staticmethod
-    def __clone(clone_url, repo_name, parent_name):
+    def __clone(clone_url, repo_name, parent_name, try_again: bool = False):
         os.chdir(GithubArchiver.ROOT_WD)
         if not os.path.exists(parent_name):
             os.makedirs(parent_name)
         os.chdir(parent_name)
-        if not os.path.exists(repo_name):
-            logging.info(f"Started cloning {repo_name}")
-            git.Repo.clone_from(url=clone_url, to_path=repo_name)
-            logging.info(f"Finished cloning {repo_name}")
-        else:
-            logging.error(f"Folder {repo_name} already exists.")
-            raise FileExistsError
+        try:
+            if not os.path.exists(repo_name):
+                logging.info(f"Started cloning {repo_name}")
+                git.Repo.clone_from(url=clone_url, to_path=repo_name)
+                logging.info(f"Finished cloning {repo_name}")
+            else:
+                logging.error(f"Folder {repo_name} already exists.")
+                raise FileExistsError
+        except GitCommandError as e:
+            logging.error(f"Caught an exception: {e}")
+            if try_again:
+                logging.error("Trying the same call again by deleting the repo and starting over")
+                shutil.rmtree(path=repo_name)
+                GithubArchiver.__clone(clone_url=clone_url, repo_name=repo_name, parent_name=parent_name, try_again=True)
+            else:
+                logging.warning(f"Not trying again to clone {repo_name} since the try again flag was false")
+                raise e
 
     @staticmethod
     def __pull(clone_url: str, repo_name: str, parent_name: str):
