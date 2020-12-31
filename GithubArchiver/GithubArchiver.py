@@ -46,15 +46,15 @@ class GithubArchiver:
         os.chdir(GithubArchiver.ROOT_WD)  # Go to the root working direcotry
         try:
             repo = self.github.get_repo(repo_name)
-            logging.info(type(repo))
+
         except UnknownObjectException:
             logging.error("Could not find a repo {repo}. Please ensure full path e.g joubin/GithubArchiver".format(
                 repo=repo_name))
             return
         try:
-            GithubArchiver.__clone(clone_url=repo.clone_url, repo_name=repo.name, parent_name=repo.parent.name)
+            GithubArchiver.__clone(clone_url=repo.clone_url, repo_name=repo.name, parent_name=repo.owner.login)
         except FileExistsError:
-            GithubArchiver.__pull(clone_url=repo.clone_url, repo_name=repo.name, parent_name=repo.parent.name)
+            GithubArchiver.__pull(clone_url=repo.clone_url, repo_name=repo.name, parent_name=repo.owner.login)
 
     def download_by_org(self, org_name: str):
         os.chdir(GithubArchiver.ROOT_WD)  # Go to the root working direcotry
