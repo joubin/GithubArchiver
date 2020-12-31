@@ -98,8 +98,7 @@ class GithubArchiver:
                 shutil.rmtree(path=repo_name)
                 GithubArchiver.__clone(clone_url=clone_url, repo_name=repo_name, parent_name=parent_name, try_again=True)
             else:
-                logging.warning(f"Not trying again to clone {repo_name} since the try again flag was false")
-                raise e
+                logging.error(f"Not trying again to clone {repo_name} since the try again flag was false")
 
     @staticmethod
     def __pull(clone_url: str, repo_name: str, parent_name: str):
