@@ -46,6 +46,7 @@ class GithubArchiver:
         os.chdir(GithubArchiver.ROOT_WD)  # Go to the root working direcotry
         try:
             repo = self.github.get_repo(repo_name)
+            logging.info(type(repo))
         except UnknownObjectException:
             logging.error("Could not find a repo {repo}. Please ensure full path e.g joubin/GithubArchiver".format(
                 repo=repo_name))
@@ -83,8 +84,9 @@ class GithubArchiver:
             os.makedirs(parent_name)
         os.chdir(parent_name)
         if not os.path.exists(repo_name):
+            logging.info(f"Started cloning {repo_name}")
             git.Repo.clone_from(url=clone_url, to_path=repo_name)
-            logging.info("Finished cloning {repo_name}".format(repo_name=repo_name))
+            logging.info(f"Finished cloning {repo_name}")
         else:
             logging.error(f"Folder {repo_name} already exists.")
             raise FileExistsError
