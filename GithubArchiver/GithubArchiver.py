@@ -13,8 +13,9 @@ class GithubArchiver:
     GITHUBARCHIVER_USER: str = "GITHUBARCHIVER_USER"
     GITHUBARCHIVER_PASSWORD: str = "GITHUBARCHIVER_PASSWORD"
     ROOT_WD = os.getcwd()
-    logging.basicConfig(format='%(levelname)s | %(asctime)s | %(message)s', level=logging.INFO, datefmt='%m/%d/%Y '
-                                                                                                        '%I:%M:%S %p')
+    LOGLEVEL = os.environ.get('LOGLEVEL', 'INFO').upper()
+    logging.basicConfig(format='%(levelname)s | %(asctime)s | %(message)s', level=LOGLEVEL, datefmt='%m/%d/%Y '
+                                                                                                        '%I:%M:%S %p %Z')
 
     def __init__(self):
         self.github: Github = self.authenticate()
